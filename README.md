@@ -4,11 +4,11 @@ A set of AWS Lambda Functions and Step Functions for the automated pipelines for
 
 ## Aims
 
-To develop a set of component [AWS Lambda functions][https://aws.amazon.com/lambda/] which will download, split, superimpose, truncate and transform sets of molecules of the same family. This will focus initially on MHC Class I and II molecules of the immune system, but the aim is to develop the functions in as neutral a way possible so as to permit reuse for other families of molecules.
+To develop a set of component [AWS Lambda functions](https://aws.amazon.com/lambda/) which will download, split, superimpose, truncate and transform sets of molecules of the same family. This will focus initially on MHC Class I and II molecules of the immune system, but the aim is to develop the functions in as neutral a way possible so as to permit reuse for other families of molecules.
 
-The aim is to use [12 Factor App][https://12factor.net/] principles as much as possible, using configuration stored either in persistent storage with locations injected as environment variables or in environment variables themselves. This will hopefully allow for some reuse with as little work as possible.
+The aim is to use [12 Factor App](https://12factor.net/) principles as much as possible, using configuration stored either in persistent storage with locations injected as environment variables or in environment variables themselves. This will hopefully allow for some reuse with as little work as possible.
 
-The modules will be as small as possible, performing at most one or two tasks, to allow for swapping if underlying systems or libraries change. [AWS Lambda Layers][https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html] will be used to allow for management of significant packages.
+The modules will be as small as possible, performing at most one or two tasks, to allow for swapping if underlying systems or libraries change. [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) will be used to allow for management of significant packages.
 
 ## Overview
 
@@ -19,7 +19,7 @@ The modules will be as small as possible, performing at most one or two tasks, t
 
 This function does two things:
 
-- it runs a pre-defined query on the [RCSB RESTful API][https://data.rcsb.org/redoc/index.html]. The default query to run is called `query` but this can be overridden by a named query in the `event` payload of the Lambda function in the variable `selected_query`. Queries sit in the `metadata/queries/rcsb` folder in the bucket you specify in the environment variable `bucket`. Queries are stored as JSON.
+- it runs a pre-defined query on the [RCSB RESTful API](https://data.rcsb.org/redoc/index.html). The default query to run is called `query` but this can be overridden by a named query in the `event` payload of the Lambda function in the variable `selected_query`. Queries sit in the `metadata/queries/rcsb` folder in the bucket you specify in the environment variable `bucket`. Queries are stored as JSON.
 - it compares the results with those structures already downloaded or added to the ignore list.
 - it writes out a file listing the items to be downloaded if there are new structures not on the downloaded or ignore list.
 
