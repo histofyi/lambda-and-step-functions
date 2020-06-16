@@ -51,7 +51,13 @@ e.g. structures/raw/2hla/complex_1.pdb
 
 Full description coming soon
 
-### StructureSuperImposer
+### StructureAligner
+
+This function does one thing:
+
+- it aligns the single complex pdb file for one molecule against the alpha1/alpha2 domains of the 2hla structure. It then writes out that aligned file into a folder, named with the lower case version of the pdb_code, the `structures/aligned` folder of the bucket.
+
+e.g. structures/aligned/3hla/complex_1.pdb
 
 Full description coming soon
 
