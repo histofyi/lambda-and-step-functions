@@ -13,13 +13,22 @@ The modules will be as small as possible, performing at most one or two tasks, t
 ## Overview
 
 
+
+## Terminology
+
+### Lambda Function
+
+Lambda is an on-demand compute service from AWS. It lets you run code without provisioning or managing servers. It autoscales up and down and you only pay for the compute time/resources you consume.
+
+
+
 ## Functions
 
 ### RCSBSearch
 
 This function does two things:
 
-- it runs a pre-defined query on the [RCSB RESTful API](https://data.rcsb.org/redoc/index.html). The default query to run is called `query` but this can be overridden by a named query in the `event` payload of the Lambda function in the variable `selected_query`. Queries sit in the `metadata/queries/rcsb` folder in the bucket you specify in the environment variable `bucket`. Queries are stored as JSON.
+- it runs a pre-defined query on the [RCSB RESTful API](https://data.rcsb.org/redoc/index.html). The default query to run is called `query` but this can be overridden by a named query in the `event` payload of the Lambda function in the variable `selected_query`. Queries sit in the `config/queries/rcsb` folder in the bucket you specify in the environment variable `bucket`. Queries are stored as JSON. An example is given in the `samples` folder of this repository.
 - it compares the results with those structures already downloaded or added to the ignore list.
 - it writes out a file listing the items to be downloaded if there are new structures not on the downloaded or ignore list.
 
